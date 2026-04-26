@@ -1,0 +1,14 @@
+{
+  "name": "SHA'S Welding & Tinkery Works",
+  "description": "Professional welding and auto tinkering workshops. Showcasing expert craftsmanship in metal works and vehicle restoration.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "Image Gallery",
+    "WhatsApp Integration",
+    "Service Showcase",
+    "Contact & Quotes",
+    "Admin Dashboard"
+  ]
+}

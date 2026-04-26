@@ -1,0 +1,35 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Gallery Project",
+      "description": "A project showcased in the workshop gallery",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The title of the work" },
+        "category": { "type": "string", "enum": ["Welding", "Fabrication", "Auto Repair", "Structural"] },
+        "imageUrl": { "type": "string", "format": "uri" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "category", "imageUrl", "createdAt"]
+    },
+    "Setting": {
+      "title": "Site Setting",
+      "description": "Global site configuration like logo",
+      "type": "object",
+      "properties": {
+        "logoUrl": { "type": "string", "format": "uri" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "firestore": {
+    "/projects/{projectId}": {
+      "schema": "Project",
+      "description": "Public gallery of works done by Sha's Welding"
+    },
+    "/settings/{settingId}": {
+      "schema": "Setting",
+      "description": "Global settings for the website"
+    }
+  }
+}

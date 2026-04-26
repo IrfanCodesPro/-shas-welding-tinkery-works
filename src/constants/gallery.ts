@@ -1,0 +1,16 @@
+export const STATIC_PROJECTS = [
+  { id: 'static-1', title: 'Auto Body Work', imageUrl: '/galary/auto.jpeg', category: 'Auto' },
+  { id: 'static-2', title: 'Auto Body Work 1', imageUrl: '/galary/auto1.jpeg', category: 'Auto' },
+  { id: 'static-3', title: 'Auto Body Work 2', imageUrl: '/galary/auto2.jpeg', category: 'Auto' },
+  { id: 'static-4', title: 'Church Chariot', imageUrl: '/galary/church_chariot.jpeg', category: 'Special' },
+  { id: 'static-5', title: 'Compound Gate', imageUrl: '/galary/compoumd.jpeg', category: 'Gate' },
+  { id: 'static-6', title: 'Window Grill 1', imageUrl: '/galary/window1.jpg', category: 'Window' },
+  { id: 'static-7', title: 'Window Grill 2', imageUrl: '/galary/window2.jpg', category: 'Window' },
+  { id: 'static-8', title: 'Modern Gate 2', imageUrl: '/galary/gate2_modern.jpeg', category: 'Gate' },
+  { id: 'static-9', title: 'Heavy Duty Gate', imageUrl: '/galary/gate.jpeg', category: 'Gate' },
+  { id: 'static-10', title: 'Ornate Gate 3', imageUrl: '/galary/gate3.jpeg', category: 'Gate' },
+  { id: 'static-11', title: 'Safety Grid 2', imageUrl: '/galary/grid2_safety.jpeg', category: 'Grid' },
+  { id: 'static-12', title: 'Industrial Grid 1', imageUrl: '/galary/grid1.jpeg', category: 'Grid' },
+  { id: 'static-13', title: 'Custom Grid 2', imageUrl: '/galary/grid2.jpeg', category: 'Grid' },
+  { id: 'static-14', title: 'Welding Image', imageUrl: '/galary/images.jpg', category: 'Misc' },
+];

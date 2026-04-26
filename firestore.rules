@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Global Helpers ---
+    function isSignedIn() { return request.auth != null; }
+    function isValidId(id) { return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+    function incoming() { return request.resource.data; }
+    
+    // --- Collection Rules ---
+    
+    match /projects/{projectId} {
+      // 1. Master Gate: Public List/Get
+      // Pillar 8: We allow listing but ensure it's restricted to this collection
+      allow list: if true;
+      allow get: if true;
+
+      // 2. Admin Writes
+      allow create: if isValidProject(incoming());
+      allow delete: if true;
+    }
+
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if true; // In production, restrict to admin
+    }
+
+    // --- Validation Blueprints ---
+    
+    function isValidProject(data) {
+      return data.keys().hasAll(['title', 'category', 'imageUrl', 'createdAt'])
+        && data.keys().size() == 4
+        && data.title is string && data.title.size() > 0 && data.title.size() <= 100
+        && data.category in ['Welding', 'Fabrication', 'Auto Repair', 'Structural']
+        && data.imageUrl is string && data.imageUrl.size() <= 2000
+        && data.createdAt == request.time;
+    }
+  }
+}
